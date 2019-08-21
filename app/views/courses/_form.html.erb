@@ -1,0 +1,24 @@
+<%= form_with(model: @course, local: true) do |form| %>
+	 <%= form.label :name,class: "control-label required" %>
+	 <%= form.text_field :name ,class: "form-control"%>
+	 <span style="color:red;"><%= @course.errors[:name][0] rescue nil%></span><br><br>
+	 <%= form.label :type,class: "control-label required" %>
+   <%= form.radio_button :course_type, 'Semester',
+   :checked => @course.course_type.nil? == false && @course.course_type == 'Semester',class: "radio-inline" %> Semester
+    <%= form.radio_button :course_type, 'Trimester',
+    :checked => @course.course_type.nil? == false && @course.course_type == 'Trimester',class: "radio-inline" %> Trimester</>
+    <%= form.radio_button :course_type,'Yearly',
+    :checked => @course.course_type.nil? == false && @course.course_type == 'Yearly',class: "radio-inline" %> Yearly</><br><br>
+    <%= form.label :year,class: "control-label required" %>
+	  <%= form.text_field :year ,class: "form-control"%>
+	  <span style="color:red;"><%= @course.errors[:year][0] rescue nil%></span><br><br>
+		<%= form.label :session,class: "control-label required" %>
+		<%= form.text_field :session ,class: "form-control"%>
+		<span style="color:red;"><%= @course.errors[:session][0] rescue nil%></span><br><br>
+		<%= form.label :campu_id,class: "control-label required" %>
+		<% campus = Campu.all.map { |camp| [camp.campus, camp.id] } %>
+		<%= form.select :campu_id,options_for_select(campus,['select campus',0]), {prompt: 'Select a campus'}%>
+		<span style="color:red;"><%= @course.errors[:campu_id][0] rescue nil%></span><br><br>
+		<%= form.submit class: 'btn btn-success', value: 'Submit'%>
+		<a href="javascript:history.back()">BACK</a>
+<% end %>

@@ -1,0 +1,37 @@
+<h2>Create Course</h2>
+	<%= render 'form' %>
+
+<br>
+<br>
+<h2>Course List</h2>
+<table>
+  <tr>
+    <th>Course</th>
+    <th>Type</th>
+    <th>Year</th>
+    <th>Session</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @courses.each do |course| %>
+
+    <tr>
+      <td><%= course.name %></td>
+      <%if course.course_type =='Semester' %>
+      	<td><%= course.course_type = 'Semester' %>
+      <%elsif course.course_type =='Trimester'%>
+      	<td><%= course.course_type = 'Trimester' %>
+      <%else course.course_type =='Yearly'%>
+     		 <td><%= course.course_type = 'Yearly' %>
+      <%end%>
+      <td><%= course.year %>
+     	<td><%= course.session %></td>
+     </td>
+     <td><%= link_to 'Show', course_path(course) %></td>
+      <td><%= link_to 'Edit', edit_course_path(course) %></td>
+       <td><%= link_to 'Destroy', course_path(course),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+   </tr>
+  <% end %>
+</table>

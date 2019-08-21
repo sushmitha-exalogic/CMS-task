@@ -1,0 +1,7 @@
+<h4>College/Campus SetUp</h4>
+Enter the Campus name:
+<%= form_for(@campus, url: campuses_path) do |f| %>
+  <%= f.text_area :campus%>
+  <span style="color:red;"><%= @campus.errors[:campus][0] rescue nil%></span><br><br><br>
+  <%= f.submit class: 'btn btn-success', value: 'Submit'%>
+ <%end%>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: MyText
+  year: 2019-08-20
+  session: 1
+  campu_id: 1
+
+two:
+  name: MyString
+  type: MyText
+  year: 2019-08-20
+  session: 1
+  campu_id: 1
