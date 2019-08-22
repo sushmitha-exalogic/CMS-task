@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'campuses#index'
   resources :campuses
   resources :courses
+  resources :departments
 end

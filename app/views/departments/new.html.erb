@@ -1,0 +1,17 @@
+<%= render 'form'%>
+<h1>department List</h1>
+<table>
+	<tr>
+	 <th>Name</th>
+	</tr>
+	<% @departments.each do |dep|%>
+    <tr>
+    	<td><%= dep.name%></td>
+    	<td><%= link_to 'Show', department_path(dep) %></td>
+      	<td><%= link_to 'Edit', edit_department_path(dep) %></td>
+       	<td><%= link_to 'Destroy', department_path(dep),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>	
+    <%end%>
+</table>

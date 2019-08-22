@@ -1,0 +1,16 @@
+<%= form_with(model: @department, local: true) do |form| %>
+<p>
+	<%= form.label :name,class: "control-label required" %>
+	<%= form.text_field :name ,class: "form-control"%>
+	<span style="color:red;"><%= @department.errors[:name][0] rescue nil%></span>
+</p>
+<p>
+	<%= form.label :course_id,class: "control-label required" %>
+	<% course = Course.all.map { |cou| [cou.name, cou.id] } %>
+	<%= form.select :course_id,options_for_select(course,['select course',0]), {prompt: 'Select a course'}%>
+	<span style="color:red;"><%= @department.errors[:course_id][0] rescue nil%></span><br><br>
+	<%= form.submit class: 'btn btn-success', value: 'Create'%>
+	<a href="javascript:history.back()">BACK</a>
+</p>	
+    
+<%end%>
