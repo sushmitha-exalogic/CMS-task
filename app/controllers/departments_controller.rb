@@ -33,7 +33,7 @@ class DepartmentsController < ApplicationController
 
 	private
 	def dept_params
-		params.require(:department).permit(:name,:course_id)
+		params.require(:department).permit(:name)
 	end
 	def find_department
 		if params[:id]
