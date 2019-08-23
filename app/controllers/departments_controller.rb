@@ -7,9 +7,10 @@ class DepartmentsController < ApplicationController
 	end
 	def create
 		@department = Department.new(dept_params)
-		if @department.save
+		begin
+		  @department.save!
 			redirect_to new_department_path
-		else
+		rescue => e
 			@departments = Department.all
 			render 'new'
 		end

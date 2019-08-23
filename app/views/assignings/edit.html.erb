@@ -1,0 +1,8 @@
+<h2>Edit Assigning</h2>
+	<%= form_for(@assigning) do |form| %>
+	<%courses =  @course.map{|course| [course.name,course.id]}%>
+	<%= form.select :course_id,	courses, {prompt: 'Select a Course'}%>
+	<%department =  @department.map{|dep| [dep.name,dep.id]}%>
+	<%= form.select :department_id,	department, {prompt: 'Select a Department'}%>
+	<%= form.submit class: 'btn btn-success', value: 'Assign'%>
+<%end%>

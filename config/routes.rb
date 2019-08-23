@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :campuses
   resources :courses
   resources :departments
+  resources :assignings
 end

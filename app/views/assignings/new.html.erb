@@ -1,0 +1,24 @@
+<%= render 'form' %>
+<h1>Assigning List</h1>
+<table>
+	<thead>
+		<tr>
+		 <th>Department</th>
+		 <th>Course</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @assignings.each do |assigning|%>
+    <tr>
+    	<td><%= assigning.department.name%></td>
+    	<td><%= assigning.course.name%></td>
+    	<td><%= link_to 'Show', assigning_path(assigning) %></td>
+      	<td><%= link_to 'Edit', edit_assigning_path(assigning) %></td>
+       	<td><%= link_to 'Destroy', assigning_path(assigning),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>	
+    <%end%>
+	</tbody>
+
+</table>
