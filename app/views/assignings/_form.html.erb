@@ -1,0 +1,15 @@
+<%= form_with(model: @assign, local: true) do |form| %>
+<p>
+	<%courses =  @course.map{|course| [course.name,course.id]}%>
+	<%= form.select :course_id,	courses, {prompt: 'Select a Course'} %>
+	<span style="color:red;"><%= @assign.errors[:course][0] rescue nil%></span>
+</p>
+<p>
+	<%department =  @department.map{|dep| [dep.name,dep.id]}%>
+	<%= form.select :department_id,	department, {prompt: 'Select a Department'}%>
+	<span style="color:red;"><%= @assign.errors[:department][0] rescue nil%></span>
+</p>
+	<%= form.submit class: 'btn btn-success', value: 'Assign'%>
+	<span style="color:red;"><%= @assign.errors[:course_id][0] rescue nil%></span>
+	<span style="color:red;"><%= @assign.errors[:department_id][0] rescue nil%></span>
+<%end%>
